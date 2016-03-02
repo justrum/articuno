@@ -4,7 +4,9 @@ let setNavbarActiveItem = (item) => {
 };
 
 Router.configure({
-	layoutTemplate: 'ApplicationLayout'
+	layoutTemplate: 'ApplicationLayout',
+	loadingTemplate: 'ApplicationLoading',
+	notFoundTemplate: 'ApplicationNotFound'
 });
 
 Router.route('/', function() {

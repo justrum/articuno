@@ -5,6 +5,9 @@
 		<a href="/home" class="item home">Inicio</a>
 		<a class="item">Autos Nuevos</a>
 		<a class="item">Autos Usados</a>
+		{{#if currentUser}}
+		<a class="item">Favoritos</a>
+		{{/if}}
 		<div class="menu right">
 			{{#if currentUser}}
 			<a class="item">
