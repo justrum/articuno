@@ -25,3 +25,5 @@ iron:router
 iamkevingreen:meteor-pickadate
 aldeed:simple-schema
 aldeed:collection2
+reactive-var
+lepozepo:accounting

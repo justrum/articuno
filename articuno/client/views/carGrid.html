@@ -1,0 +1,48 @@
+<template name="carGrid">
+<div class="column">
+	<div class="ui fluid card car-card">
+		<div class="content">
+			{{#if statusIs "nuevo"}}
+			<a class="ui green tag label right floated">{{status}}</a>
+			{{/if}}
+			<img class="ui avatar image" src="/images/mockupuser.jpg" /> Elliot
+		</div>
+		{{#if currentUser}}
+		<div class="blurring dimmable image">
+			<div class="ui dimmer">
+				<div class="content">
+					<div class="center">
+						<div class="ui positive button">Agregar a favoritos</div>
+					</div>
+				</div>
+			</div>
+			<img src="/images/mockupcar.png">
+		</div>
+		{{else}}
+		<div class="image">
+			<img src="/images/mockupcar.png" />
+		</div>
+		{{/if}}
+		<div class="content">
+			<div class="header">{{model}}</div>
+			<div class="meta">
+				<a><strong>Precio: {{formatCurrency currency price}}</strong></a>
+			</div>
+			<div class="meta">
+				<a><strong>Año: {{year}}</strong></a>
+			</div>
+			<div class="meta">
+				<a><strong>Ciudad: {{city.name}}</strong></a>
+			</div>
+		</div>
+		<div class="extra content">
+			<span class="right floated">
+				<i class="heart outline like icon"></i>
+				{{views}} visitas
+			</span>
+			<i class="comments icon"></i>
+			{{comments}} comentarios
+		</div>
+	</div>
+</div>
+</template>
