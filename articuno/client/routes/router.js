@@ -23,6 +23,7 @@ Router.route('/home', {
 
 Router.route('/register', {
 	action: function() {
+		setNavbarActiveItem('register');
 		this.render('register');
 	}
 });
