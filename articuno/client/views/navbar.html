@@ -1,37 +1,16 @@
 <template name="navbar">
-<nav class="ui menu">
+<nav class="ui menu navbar">
 	<div class="ui container">
 		<div class="header item">JustRum</div>
-		<a class="active item">Inicio</a>
+		<a href="/home" class="item home">Inicio</a>
 		<a class="item">Autos Nuevos</a>
 		<a class="item">Autos Usados</a>
-		<div class="right menu">
-			<div class="ui simple dropdown item">
-				Iniciar Sesion
-				<i class="dropdown icon"></i>
-				<div class="menu">
-					<div class="item">
-						<div class="ui input">
-							<input type="text" placeholder="Usuario">
-						</div>
-					</div>
-					<div class="item">
-						<div class="ui input">
-							<input type="password" placeholder="Contraseña">
-						</div>
-					</div>
-					<div class="item">
-						<div class="ui buttons">
-							<button class="ui button">Registrarse</button>
-							<div class="or" data-text="ó"></div>
-							<button class="ui positive button">Iniciar Sesión</button>
-						</div>
-					</div>
-					<div class="item">
-						<button class="fluid ui facebook button"><i class="facebook icon"></i>Iniciar sesión con Facebook</button>
-					</div>
-				</div>
-			</div>
+		<div class="menu right">
+			{{#if currentUser}}
+				<a class="item">Cerrar Sesión</a>
+			{{else}}
+				{{> login}}
+			{{/if}}
 		</div>
 	</div>
 </nav>
