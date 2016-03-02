@@ -12,7 +12,7 @@ Router.route('/', function() {
 });
 
 Router.route('/home', {
-	waitOn: function() {
+	waitOn: () => {
 		return Meteor.subscribe('cars');
 	},
 	action: function() {

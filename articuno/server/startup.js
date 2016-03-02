@@ -24,9 +24,10 @@ Meteor.startup(() => {
 });
 
 let initDummyCars = (carBrands, cities) => {
-	const models = ['Audi A6', 'Mazda 3', 'Toyota Corolla', 'Mitsubishi Lancer']
+	const models = ['Audi A6', 'Mazda 3', 'Toyota Corolla', 'Mitsubishi Lancer'];
+	const status = ['Nuevo', 'Usado'];
 	let cars = [];
-	for (let i = 0; i < 12; i++) {
+	for (let i = 0; i < 20; i++) {
 		let brand = Math.floor((Math.random() * (carBrands.length - 1)));
 		let city = Math.floor((Math.random() * (cities.length - 1)));
 		let model = Math.floor((Math.random() * (models.length - 1)));
@@ -39,12 +40,13 @@ let initDummyCars = (carBrands, cities) => {
 			model: models[model],
 			comments: Math.floor((Math.random() * 30) + 1),
 			views: Math.floor((Math.random() * 150) + 1),
-			year: Math.floor((Math.random() * 2016) + 1992)
+			year: Math.floor(Math.random() * (2016 - 1992 + 1)) + 1992,
+			status: status[Math.floor((Math.random() * status.length))]
 		});
 	}
 
 	return cars;
-}
+};
 
 let initCities = () => {
 	return [{
@@ -124,7 +126,7 @@ let initCities = () => {
 	}, {
 		name: 'Puerto Lempira'
 	}];
-}
+};
 
 let initCarBrands = () => {
 	return [{
