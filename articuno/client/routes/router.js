@@ -3,5 +3,14 @@ Router.configure({
 });
 
 Router.route('/', function() {
-	this.render('home');
+	this.redirect('/home');
+});
+
+Router.route('/home', {
+	waitOn: function() {
+		return Meteor.subscribe('cars');
+	},
+	action: function() {
+		this.render('home');
+	}
 });

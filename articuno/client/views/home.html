@@ -1,9 +1,47 @@
 <template name="home">
-<div class="ui grid">
-	<div class="row">
-		<div class="column">
-			column wide
+<div class="ui four column stackable grid home-container">
+{{#each cars}}
+	{{> carGrid}}
+{{/each}}
+</div>
+</template>
+<template name="carGrid">
+<div class="column">
+	<div class="ui fluid card car-card">
+		<div class="content">
+			<div class="right floated meta">14h</div>
+			<img class="ui avatar image" src="/images/mockupuser.jpg"> Elliot
 		</div>
-	</div>	
+		<div class="blurring dimmable image">
+			<div class="ui dimmer">
+				<div class="content">
+					<div class="center">
+						<div class="ui positive button">Agregar a favoritos</div>
+					</div>
+				</div>
+			</div>
+			<img src="/images/mockupcar.png">
+		</div>
+		<div class="content">
+			<div class="header">{{model}}</div>
+			<div class="meta">
+				<a><strong>Precio: {{currency}}{{price}}</strong></a>
+			</div>
+			<div class="meta">
+				<a><strong>Año: {{year}}</strong></a>
+			</div>
+			<div class="meta">
+				<a><strong>Ciudad: {{city.name}}</strong></a>
+			</div>
+		</div>
+		<div class="extra content">
+			<span class="right floated">
+				<i class="heart outline like icon"></i>
+				{{views}} visitas
+			</span>
+			<i class="comments icon"></i>
+			{{comments}} comentarios
+		</div>
+	</div>
 </div>
 </template>
