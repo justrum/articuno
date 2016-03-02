@@ -43,5 +43,10 @@ Template.login.events({
 	},
 	'click .login .facebook': (event) => {
 		event.preventDefault();
+		Meteor.loginWithFacebook({}, function(err) {
+			if (err) {
+				throw new Meteor.Error("Inicio de sesión con Facebook fallido.");
+			}
+		});
 	}
 });
