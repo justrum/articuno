@@ -7,7 +7,10 @@
 		<a class="item">Autos Usados</a>
 		<div class="menu right">
 			{{#if currentUser}}
-				<a class="item logout">Cerrar Sesión</a>
+			<a class="item">
+				<span>Bienvenido, <b>{{currentUser.profile.name}}</b></span>
+			</a>
+			<a class="item logout">Cerrar Sesión</a>
 			{{else}}
 				{{> login}}
 			{{/if}}

@@ -1,8 +1,15 @@
 Template.register.rendered = () => {
 	$('.register-new-account form').form({
 		fields: {
-			email: {
-				identifier: 'email',
+			name: {
+				identifier: 'name',
+				rules: [{
+					type: 'empty',
+					prompt: 'Ingrese su nombre.'
+				}]
+			},
+			'register-email': {
+				identifier: 'register-email',
 				rules: [{
 					type: 'empty',
 					prompt: 'Ingrese su correo electrónico.'
@@ -11,8 +18,8 @@ Template.register.rendered = () => {
 					prompt: 'Ingrese un correo válido.'
 				}]
 			},
-			password: {
-				identifier: 'password',
+			'register-password': {
+				identifier: 'register-password',
 				rules: [{
 					type: 'empty',
 					prompt: 'Ingrese su contraseña'
@@ -27,7 +34,7 @@ Template.register.rendered = () => {
 					type: 'empty',
 					prompt: 'Confirme su contraseña.'
 				}, {
-					type: 'match[password]',
+					type: 'match[register-password]',
 					prompt: 'La contraseña y confirmación no son iguales.'
 				}]
 			}
@@ -36,15 +43,18 @@ Template.register.rendered = () => {
 };
 
 Template.register.viewmodel({
+	name: '',
 	email: '',
-	password: ''
+	password: '',
+	confirmation: ''
 });
 
 Template.register.events({
 	'submit .register-new-account form': (event) => {
 		event.preventDefault();
-		let email = event.target.email.value;
-		let password = event.target.password.value;
+		let name = event.target.name.value;
+		let email = event.target['register-email'].value;
+		let password = event.target['register-password'].value;
 		let confirmation = event.target.confirmation.value;
 		if (password !== confirmation) {
 			return $('.register-new-account form')
@@ -52,13 +62,16 @@ Template.register.events({
 		}
 		Accounts.createUser({
 			email: email,
-			password: password
+			password: password,
+			profile: {
+				name: name
+			}
 		}, (error) => {
 			if (error) {
 				return $('.register-new-account form')
 					.form('add errors', ['Ya existe una cuenta con este correo electrónico.']);
 			}
-			location = '/home';
+			Router.go('/home');
 		});
 	}
 });
