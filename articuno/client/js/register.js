@@ -36,7 +36,7 @@ Template.register.rendered = () => {
 };
 
 Template.register.viewmodel({
-	email: 'test@test.com',
+	email: '',
 	password: ''
 });
 
