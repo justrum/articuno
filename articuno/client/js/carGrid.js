@@ -11,6 +11,6 @@ Template.carGrid.rendered = () => {
 };
 Template.carGrid.helpers({
 	statusIs: function(status) {
-		return this.status.toLowerCase() === status;
+		return this.status && this.status.toLowerCase() === status;
 	}
 });
