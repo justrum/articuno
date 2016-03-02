@@ -1,4 +1,4 @@
-Meteor.startup(function() {
+Meteor.startup(() => {
 	// code to run on server at startup
 	const carBrands = initCarBrands();
 	const cities = initCities();
@@ -23,7 +23,7 @@ Meteor.startup(function() {
 	}
 });
 
-let initDummyCars = function(carBrands, cities) {
+let initDummyCars = (carBrands, cities) => {
 	const models = ['Audi A6', 'Mazda 3', 'Toyota Corolla', 'Mitsubishi Lancer']
 	let cars = [];
 	for (let i = 0; i < 12; i++) {
@@ -46,7 +46,7 @@ let initDummyCars = function(carBrands, cities) {
 	return cars;
 }
 
-let initCities = function() {
+let initCities = () => {
 	return [{
 		name: 'Tegucigalpa'
 	}, {

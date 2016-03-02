@@ -1,11 +1,11 @@
-Template.home.rendered = function() {
+Template.home.rendered = () => {
 	$('.car-card .image').dimmer({
 		on: 'hover'
 	});
 };
 
 Template.home.helpers({
-	cars: function() {
+	cars: () => {
 		return Cars.find({});
 	}
 });
