@@ -24,8 +24,9 @@ Meteor.startup(() => {
 });
 
 let initDummyCars = (carBrands, cities) => {
-	const models = ['Audi A6', 'Mazda 3', 'Toyota Corolla', 'Mitsubishi Lancer'];
-	const status = ['Nuevo', 'Usado'];
+	const models = ['A6', 'Murcielago', 'Corolla', 'Lancer Evolution'];
+	const status = [true, false];
+	const colors = ['Rojo', 'Verde', 'Negro', 'Azul'];
 	let cars = [];
 	for (let i = 0; i < 20; i++) {
 		let brand = Math.floor((Math.random() * (carBrands.length - 1)));
@@ -41,7 +42,20 @@ let initDummyCars = (carBrands, cities) => {
 			comments: Math.floor((Math.random() * 30) + 1),
 			views: Math.floor((Math.random() * 150) + 1),
 			year: Math.floor(Math.random() * (2016 - 1992 + 1)) + 1992,
-			status: status[Math.floor((Math.random() * status.length))]
+			isNew: status[Math.floor((Math.random() * status.length))],
+			isActive: true,
+			milesKms: '60,0000 millas',
+			motor: '2.0 CC',
+			transmission: 'manual',
+			traction: 'tracera',
+			direction: 'hidraulica',
+			gasoline: 'diesel',
+			color: colors[Math.floor((Math.random() * colors.length))],
+			extras: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat cum vitae fugit est, eaque ea, quod pariatur numquam natus cumque aut laborum voluptates vero molestias, ad unde inventore tempore praesentium!',
+			financing: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+			promotion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+			stereo: 'radio/cd/bluetooth',
+			windows: 'electricos'
 		});
 	}
 

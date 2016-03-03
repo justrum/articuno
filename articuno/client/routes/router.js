@@ -29,3 +29,12 @@ Router.route('/register', {
 		this.render('register');
 	}
 });
+
+Router.route('/car/:carid', {
+	waitOn: () => {
+		return Meteor.subscribe('cars');
+	},
+	action: function() {
+		this.render('carDetails');
+	}
+});

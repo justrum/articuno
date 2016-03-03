@@ -7,7 +7,9 @@ Meteor.publish('cities', () => {
 });
 
 Meteor.publish('cars', () => {
-	return Cars.find();
+	return Cars.find({
+		isActive: true
+	});
 });
 
 Meteor.publish('userData', function() {
