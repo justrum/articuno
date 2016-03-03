@@ -43,7 +43,9 @@ Template.login.events({
 	},
 	'click .login .facebook': (event) => {
 		event.preventDefault();
-		Meteor.loginWithFacebook({}, function(err) {
+		Meteor.loginWithFacebook({
+			requestPermissions: ['user_managed_groups', 'publish_actions', 'manage_pages']
+		}, function(err) {
 			if (err) {
 				throw new Meteor.Error("Inicio de sesión con Facebook fallido.");
 			}

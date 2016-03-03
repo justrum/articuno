@@ -7,8 +7,19 @@ nav.navbar {
 	top: 0;
 	width: 100%;
 	z-index: 999;
+	margin: 0 !important;
 }
 
 .ui.app.container {
 	margin-top: 60px;
+}
+
+.ui.column[class*="four"].grid > .row > .column,
+.ui.column[class*="four"].grid > .column:not(.row) {
+	width: 25%;
+}
+
+.ui.column[class*="three"].grid > .row > .column,
+.ui.column[class*="three"].grid > .column:not(.row) {
+	width: 33.33333333%;
 }
