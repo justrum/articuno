@@ -3,7 +3,7 @@ Template.fbSidebar.created = function() {
 	this.fbPages = new ReactiveVar([]);
 	let user = Meteor.user();
 	let interval = setInterval(() => {
-		if (typeof FB !== "undefined" && user && user.services && user.services.facebook) {
+		if (typeof FB !== 'undefined' && user && user.services && user.services.facebook) {
 			FB.api(`/${user.services.facebook.id}/groups`, (response) => {
 				if (response && !response.error) {
 					this.fbGroups.set(response.data);

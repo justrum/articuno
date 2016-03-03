@@ -16,7 +16,6 @@
     "curly": [0],
     "eqeqeq": 2,
     "no-loop-func": 2,
-    "camelcase": 2,
     "semi": 2
   },
   "globals": {
