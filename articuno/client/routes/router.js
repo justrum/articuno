@@ -35,7 +35,6 @@ Router.route('/car/:carid', {
 		return Meteor.subscribe('cars');
 	},
 	action: function() {
-		setNavbarActiveItem('favorites');
 		this.render('carDetails');
 	}
 });
