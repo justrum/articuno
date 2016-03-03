@@ -1,11 +1,17 @@
 Template.home.helpers({
 	cars: () => {
-		return Cars.find({}, {
+		return Cars.find({
+			isActive: true
+		}, {
 			limit: 20
 		});
 	},
 	amountCars: () => {
-		return Cars.find().count();
+		return Cars.find({
+			isActive: true
+		}, {
+			limit: 20
+		}).count();
 	},
 	gridClasses: () => {
 		let user = Meteor.user();

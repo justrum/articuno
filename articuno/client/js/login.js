@@ -47,7 +47,7 @@ Template.login.events({
 			requestPermissions: ['user_managed_groups', 'publish_actions', 'manage_pages']
 		}, function(err) {
 			if (err) {
-				throw new Meteor.Error("Inicio de sesión con Facebook fallido.");
+				throw new Meteor.Error('Inicio de sesión con Facebook fallido.');
 			}
 		});
 	}

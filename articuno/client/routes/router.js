@@ -31,8 +31,9 @@ Router.route('/register', {
 });
 
 Router.route('/car/:carid', {
-	waitOn: () => {
-		return Meteor.subscribe('cars');
+	waitOn: function() {
+		const commentLimit = 10;
+		return Meteor.subscribe('carDetails', this.params.carid, 10);
 	},
 	action: function() {
 		this.render('carDetails');
