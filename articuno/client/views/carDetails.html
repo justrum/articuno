@@ -1,0 +1,122 @@
+<template name="carDetails">
+<div class="ui grid">
+	<div class="ui twelve wide column">
+		<div class="ui one column grid car-details-container">
+			<div class="column">
+				{{#with car}}
+				<div class="ui raised segments car-details-segment">
+					<div class="ui segment center aligned">
+						<img src="/images/mockupcar.png">
+					</div>
+					<div class="ui blue inverted segment">
+						<h1 class="ui header center aligned">Detalles Vehiculo</h1>
+					</div>
+					<div class="ui horizontal segments">
+						<div class="ui segment center aligned">
+							<span>Marca: <strong>{{brand.name}} </strong></span>
+						</div>
+						<div class="ui segment center aligned">
+							<span>Modelo: <strong>{{model}} </strong></span>
+						</div>
+						<div class="ui segment center aligned">
+							<span>Motor: <strong>{{motor}} </strong></span>
+						</div>
+						<div class="ui segment center aligned">
+							<span>Transmisión: <strong>{{transmission}} </strong></span>
+						</div>
+					</div>
+					<div class="ui horizontal segments">
+						<div class="ui segment center aligned">
+							<span>Año: <strong>{{year}} </strong></span>
+						</div>
+						<div class="ui segment center aligned">
+							<span>Color: <strong>{{color}} </strong></span>
+						</div>
+						<div class="ui segment center aligned">
+							<span>Dirección: <strong>{{direction}} </strong></span>
+						</div>
+						<div class="ui segment center aligned">
+							<span>Tracción: <strong>{{traction}} </strong></span>
+						</div>
+					</div>
+					<div class="ui horizontal segments">
+						<div class="ui segment center aligned">
+							<span>Millas/Kms: <strong>{{milesKms}} </strong></span>
+						</div>
+						<div class="ui segment center aligned">
+							<span>Combustible: <strong>{{gasoline}} </strong></span>
+						</div>
+						<div class="ui segment center aligned">
+							<span>Stereo: <strong>{{stereo}} </strong></span>
+						</div>
+						<div class="ui segment center aligned">
+							<span>Vidrios: <strong>{{windows}} </strong></span>
+						</div>
+					</div>
+				</div>
+				{{/with}}
+			</div>
+			<div class="column">
+			{{#with contact}}
+				<div class="ui raised segments contact-details-segment">
+					<div class="ui segment center aligned">
+						<img src="/images/mockupuser.jpg">
+					</div>
+					<div class="ui blue inverted segment">
+						<h1 class="ui header center aligned">Datos Contacto</h1>
+					</div>
+					<div class="ui segment center aligned">
+						<span> Nombre: <strong>{{name}} </strong></span>
+					</div>
+					<div class="ui segment center aligned">
+						<span> Direccion: <strong>{{address}} </strong></span>
+					</div>
+					<div class="ui segment center aligned">
+						<span>Ciudad: <strong>{{city}} </strong></span>
+					</div>
+					<div class="ui segment center aligned">
+						<span>Telefono: <strong>{{phoneNumber1}} </strong></span>
+					</div>
+					<div class="ui segment center aligned">
+						<span>Telefono: <strong>{{phoneNumber2}} </strong></span>
+					</div>
+					<div class="ui segment center aligned">
+						<span>Correo Electronico: <strong>{{email}}</strong></span>
+					</div>
+				</div>
+			{{/with}}
+			</div>
+		</div>
+	</div>
+	<div class="ui four wide column">
+		<div class="ui one column grid">
+			<div class="column">
+				<button class="fluid ui blue button">Contactar</button>
+			</div>
+			<div class="column">
+				<button class="fluid ui blue button">Compartir</button>
+			</div>
+			<div class="column">
+				<div class="ui comments">
+					<h3 class="ui dividing header">Comentarios</h3>
+					{{#each comments}}
+					{{> publicationComments}}
+					{{else}}
+					<span> No hay comentarios por el momento</span>
+					{{/each}}
+					{{#if currentUser}}
+					<form class="ui reply form">
+						<div class="field">
+							<textarea></textarea>
+						</div>
+						<div class="ui blue labeled submit icon button">
+							<i class="icon edit"></i> Agregar Comentario
+						</div>
+					</form>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</template>
