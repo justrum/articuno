@@ -61,6 +61,7 @@ manuel:isdev@1.0.0
 manuel:reactivearray@1.0.5
 manuel:viewmodel@3.4.6
 manuel:viewmodel-debug@2.6.0
+maxharris9:classnames@0.0.1
 mdg:validation-error@0.2.0
 meteor@1.1.10
 meteor-base@1.0.1
