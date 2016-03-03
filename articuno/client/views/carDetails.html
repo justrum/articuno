@@ -57,7 +57,7 @@
 				{{/with}}
 			</div>
 			<div class="column">
-			{{#with contact}}
+				{{#with contact}}
 				<div class="ui raised segments contact-details-segment">
 					<div class="ui segment center aligned">
 						<img src="/images/mockupuser.jpg">
@@ -84,7 +84,7 @@
 						<span>Correo Electronico: <strong>{{email}}</strong></span>
 					</div>
 				</div>
-			{{/with}}
+				{{/with}}
 			</div>
 		</div>
 	</div>
@@ -96,6 +96,11 @@
 			<div class="column">
 				<button class="fluid ui blue button">Compartir</button>
 			</div>
+			{{#if currentUser.services.facebook}}
+			<div class="column">
+				{{> fbSidebar}}
+			</div>
+			{{/if}}
 			<div class="column">
 				<div class="ui comments">
 					<h3 class="ui dividing header">Comentarios</h3>
