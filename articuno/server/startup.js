@@ -2,7 +2,13 @@ Meteor.startup(() => {
 	// code to run on server at startup
 	const carBrands = initCarBrands();
 	const cities = initCities();
-	const cars = initDummyCars(carBrands, cities);
+	const users = initUsers();
+
+	if (Meteor.users.find().count() === 0) {
+		for (let i = 0; i < users.length; i++) {
+			Accounts.createUser(users[i]);
+		}
+	}
 
 	if (CarBrands.find().count() === 0) {
 		for (let i = 0; i < carBrands.length; i++) {
@@ -16,30 +22,67 @@ Meteor.startup(() => {
 		}
 	}
 
+	const cars = initDummyCars();
+
 	if (Cars.find().count() === 0) {
 		for (let i = 0; i < cars.length; i++) {
 			Cars.insert(cars[i]);
 		}
 	}
+
+	const comments = initDummyComments();
+
+	if (Comments.find().count() === 0) {
+		for (let i = 0; i < comments.length; i++) {
+			Comments.insert(comments[i]);
+		}
+	}
 });
 
-let initDummyCars = (carBrands, cities) => {
+let initUsers = () => {
+	return [{
+		email: 'test@test.com',
+		password: 'password',
+		profile: {
+			name: 'JustRDK'
+		}
+	}, {
+		email: 'test2@test.com',
+		password: 'password',
+		profile: {
+			name: 'Lord Vkrum'
+		}
+	}];
+};
+
+let initDummyCars = () => {
+	const carBrands = CarBrands.find().map((brand) => {
+		return brand._id;
+	});
+	const users = Meteor.users.find().map((user) => {
+		return user._id;
+	});
+	const cities = Cities.find().map((city) => {
+		return city._id;
+	});
+
 	const models = ['A6', 'Murcielago', 'Corolla', 'Lancer Evolution'];
 	const status = [true, false];
 	const colors = ['Rojo', 'Verde', 'Negro', 'Azul'];
 	let cars = [];
 	for (let i = 0; i < 20; i++) {
-		let brand = Math.floor((Math.random() * (carBrands.length - 1)));
-		let city = Math.floor((Math.random() * (cities.length - 1)));
-		let model = Math.floor((Math.random() * (models.length - 1)));
+		let brand = Math.floor((Math.random() * carBrands.length));
+		let user = Math.floor((Math.random() * users.length));
+		let city = Math.floor((Math.random() * cities.length));
+		let model = Math.floor((Math.random() * models.length));
 
 		cars.push({
-			brand: carBrands[brand],
-			city: cities[city],
+			brandId: carBrands[brand],
+			ownerId: users[user],
+			cityId: cities[city],
 			price: Math.floor((Math.random() * 20000) + 25000),
 			currency: '$',
 			model: models[model],
-			comments: Math.floor((Math.random() * 30) + 1),
 			views: Math.floor((Math.random() * 150) + 1),
 			year: Math.floor(Math.random() * (2016 - 1992 + 1)) + 1992,
 			isNew: status[Math.floor((Math.random() * status.length))],
@@ -60,6 +103,28 @@ let initDummyCars = (carBrands, cities) => {
 	}
 
 	return cars;
+};
+
+let initDummyComments = () => {
+	let comments = [];
+	const users = Meteor.users.find().map((user) => {
+		return user._id;
+	});
+	const cars = Cars.find().map((car) => {
+		return car._id;
+	});
+
+	for (let i = 0; i < 40; i++) {
+		let car = Math.floor((Math.random() * (cars.length)));
+		let user = Math.floor((Math.random() * (users.length)));
+		comments.push({
+			carId: cars[car],
+			text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+			authorId: users[user]
+		});
+	}
+
+	return comments;
 };
 
 let initCities = () => {

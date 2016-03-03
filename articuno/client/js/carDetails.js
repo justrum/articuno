@@ -1,8 +1,14 @@
 Template.carDetails.helpers({
 	car: () => {
-		var carId = Router.current().params.carid;
+		const carId = Router.current().params.carid;
 		return Cars.findOne({
-			_id: carId
+			_id: carId,
+			isActive: true
+		});
+	},
+	carBrand: function() {
+		return CarBrands.findOne({
+			_id: this.brandId
 		});
 	},
 	contact: () => {
@@ -16,14 +22,11 @@ Template.carDetails.helpers({
 		};
 	},
 	comments: () => {
-		return [{
-			author: 'Vkrum',
-			date: 'Today at 5:42PM',
-			text: 'Que cool este carro!'
+		const carId = Router.current().params.carid;
+		return Comments.find({
+			carId: carId
 		}, {
-			author: 'JustRdk',
-			date: 'Today at 6:42PM',
-			text: 'que buen carro! ya le llamare a su celular!'
-		}];
+			limit: 10
+		});
 	},
 });

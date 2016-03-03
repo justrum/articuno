@@ -5,7 +5,7 @@
 			{{#if isNew}}
 			<a class="ui green tag label right floated">Nuevo</a>
 			{{/if}}
-			<img class="ui avatar image" src="/images/mockupuser.jpg" /> Elliot
+			<img class="ui avatar image" src="/images/mockupuser.jpg" /> {{carOwner.profile.name}}
 		</div>
 		<div class="blurring dimmable image">
 			<div class="ui dimmer">
@@ -18,7 +18,7 @@
 			<img src="/images/mockupcar.png">
 		</div>
 		<div class="content">
-			<div class="header">{{brand.name}} {{model}}</div>
+			<div class="header">{{carBrand.name}} {{model}}</div>
 			<div class="meta">
 				<a><strong>Precio: {{formatCurrency currency price}}</strong></a>
 			</div>
@@ -26,7 +26,7 @@
 				<a><strong>Año: {{year}}</strong></a>
 			</div>
 			<div class="meta">
-				<a><strong>Ciudad: {{city.name}}</strong></a>
+				<a><strong>Ciudad: {{carCity.name}}</strong></a>
 			</div>
 		</div>
 		<div class="extra content">
@@ -35,7 +35,7 @@
 				{{views}} visitas
 			</span>
 			<i class="comments icon"></i>
-			{{comments}} comentarios
+			{{amountComments}} comentarios
 		</div>
 		{{#if currentUser}}
 		<div class="ui bottom teal attached button">

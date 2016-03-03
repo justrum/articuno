@@ -25,5 +25,5 @@ Accounts.validateNewUser((user) => {
 	if (user.profile && user.profile.name) {
 		return true;
 	}
-	throw new Meteor.Error(403, "Name is required.");
+	throw new Meteor.Error(403, 'Name is required.');
 });
