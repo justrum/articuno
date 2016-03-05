@@ -5,6 +5,17 @@
 		<a href="/home" class="item home">Inicio</a>
 		<a class="item">Autos Nuevos</a>
 		<a class="item">Autos Usados</a>
+		{{#if showBrandDropdown}}
+		<div class="ui pointing dropdown link item brand-dropdown">
+			<span class="text">Buscar por Marca</span>
+			<i class="dropdown icon"></i>
+			<div class="menu">
+			{{#each brands}}
+				<div class="item">{{name}} ({{amountCarsBrand}})</div>
+			{{/each}}
+			</div>
+		</div>
+		{{/if}}
 		{{#if currentUser}}
 		<a class="item">Favoritos</a>
 		{{/if}}
@@ -15,7 +26,7 @@
 			</a>
 			<a class="item logout">Cerrar Sesión</a>
 			{{else}}
-				{{> login}}
+			{{> login}}
 			{{/if}}
 		</div>
 	</div>
