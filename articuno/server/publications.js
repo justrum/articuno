@@ -1,5 +1,9 @@
 Meteor.publish('carbrands', () => {
-	return CarBrands.find();
+	return CarBrands.find({}, {
+		sort: {
+			name: 1
+		}
+	});
 });
 
 Meteor.publish('cities', () => {

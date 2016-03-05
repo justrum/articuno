@@ -6,7 +6,15 @@ let setNavbarActiveItem = (item) => {
 Router.configure({
 	layoutTemplate: 'ApplicationLayout',
 	loadingTemplate: 'ApplicationLoading',
-	notFoundTemplate: 'ApplicationNotFound'
+	notFoundTemplate: 'ApplicationNotFound',
+	waitOn: function() {
+		return [
+			Meteor.subscribe('userData'),
+			Meteor.subscribe('carbrands'),
+			Meteor.subscribe('cities'),
+			Meteor.subscribe('cars')
+		]
+	}
 });
 
 Router.route('/', function() {
@@ -14,11 +22,9 @@ Router.route('/', function() {
 });
 
 Router.route('/home', {
-	waitOn: () => {
-		return Meteor.subscribe('cars');
-	},
 	action: function() {
 		setNavbarActiveItem('home');
+		$('nav.navbar').trigger('showBrandDropdown');
 		this.render('home');
 	}
 });
@@ -26,6 +32,7 @@ Router.route('/home', {
 Router.route('/register', {
 	action: function() {
 		setNavbarActiveItem('register');
+		$('nav.navbar').trigger('hideBrandDropdown');
 		this.render('register');
 	}
 });
@@ -36,6 +43,7 @@ Router.route('/car/:carid', {
 		return Meteor.subscribe('carDetails', this.params.carid, 10);
 	},
 	action: function() {
+		$('nav.navbar').trigger('hideBrandDropdown');
 		this.render('carDetails');
 	}
 });
