@@ -9,11 +9,11 @@
 						<img src="/images/mockupcar.png">
 					</div>
 					<div class="ui blue inverted segment">
-						<h1 class="ui header center aligned">Detalles Vehiculo</h1>
+						<h1 class="ui header center aligned">Detalles Vehiculo {{carBrand.name}} {{model}}</h1>
 					</div>
 					<div class="ui horizontal segments">
 						<div class="ui segment center aligned">
-							<span>Marca: <strong>{{carBrand.name}} </strong></span>
+							<span>Precio: <strong>{{formatCurrency currency price}}</strong></span>
 						</div>
 						<div class="ui segment center aligned">
 							<span>Modelo: <strong>{{model}} </strong></span>
