@@ -6,6 +6,8 @@
 		<div class="ui {{carsGridClasses}} column stackable grid home-container">
 			{{#each cars}}
 				{{> carGrid}}
+			{{else}}
+				<h1 class="ui header center aligned">No hay carros que mostrar por el momento</h1>
 			{{/each}}
 		</div>
 	</div>

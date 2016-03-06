@@ -7,7 +7,7 @@ Template.navbar.created = function() {
 			});
 		}
 	});
-}
+};
 
 Template.navbar.events({
 	'click a.logout': () => {
@@ -18,6 +18,9 @@ Template.navbar.events({
 	},
 	'hideBrandDropdown nav.navbar': () => {
 		Session.set('showBrandDropdown', false);
+	},
+	'click .brand-item': function() {
+		Router.go(`/home/${this._id}`);
 	}
 });
 

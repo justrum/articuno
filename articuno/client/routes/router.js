@@ -13,7 +13,7 @@ Router.configure({
 			Meteor.subscribe('carbrands'),
 			Meteor.subscribe('cities'),
 			Meteor.subscribe('cars')
-		]
+		];
 	}
 });
 
@@ -26,6 +26,14 @@ Router.route('/home', {
 		setNavbarActiveItem('home');
 		$('nav.navbar').trigger('showBrandDropdown');
 		this.render('home');
+	}
+});
+
+Router.route('/home/:brandid', {
+	action: function() {
+		setNavbarActiveItem('home');
+		$('nav.navbar').trigger('showBrandDropdown');
+		this.render('carsByBrand');
 	}
 });
 
