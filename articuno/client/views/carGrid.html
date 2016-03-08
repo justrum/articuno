@@ -38,10 +38,17 @@
 			{{amountComments}} comentarios
 		</div>
 		{{#if currentUser}}
-		<div class="ui bottom teal attached button">
+		{{#if isFavorite}}
+		<div class="ui bottom red attached button unfavorite-car">
+			<i class="star icon"></i>
+			Remover de Favoritos
+		</div>
+		{{else}}
+		<div class="ui bottom teal attached button favorite-car">
 			<i class="star icon"></i>
 			Agregar a Favoritos
 		</div>
+		{{/if}}
 		{{/if}}
 	</div>
 </div>

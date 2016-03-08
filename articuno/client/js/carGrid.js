@@ -22,5 +22,24 @@ Template.carGrid.helpers({
 		return Comments.find({
 			carId: this._id
 		}).count();
+	},
+	isFavorite: function() {
+		return UserFavorites.findOne({
+			owner: Meteor.userId(),
+			carId: this._id
+		}) !== undefined;
 	}
 });
+
+Template.carGrid.events({
+	'click .favorite-car': function() {
+		Meteor.call('addFavorite', this._id);
+	},
+	'click .unfavorite-car': function() {
+		const favorite = UserFavorites.findOne({
+			owner: Meteor.userId(),
+			carId: this._id
+		});
+		Meteor.call('removeFavorite', favorite._id);
+	}
+})
