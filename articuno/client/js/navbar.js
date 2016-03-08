@@ -1,11 +1,11 @@
 Template.navbar.created = function() {
 	Session.setDefault('showBrandDropdown', false);
 	Tracker.autorun(() => {
-		if (Session.get('showBrandDropdown') === true) {
-			Tracker.afterFlush(() => {
+		Tracker.afterFlush(() => {
+			if (Session.get('showBrandDropdown') === true) {
 				$('.brand-dropdown').dropdown();
-			});
-		}
+			}
+		});
 	});
 };
 
