@@ -4,17 +4,28 @@ let setNavbarActiveItem = (item) => {
 };
 
 Router.configure({
-	layoutTemplate: 'ApplicationLayout',
-	loadingTemplate: 'ApplicationLoading',
-	notFoundTemplate: 'ApplicationNotFound',
+	layoutTemplate: 'applicationLayout',
+	loadingTemplate: 'applicationLoading',
+	notFoundTemplate: 'applicationNotFound',
 	waitOn: function() {
 		return [
 			Meteor.subscribe('userData'),
 			Meteor.subscribe('carbrands'),
 			Meteor.subscribe('cities'),
-			Meteor.subscribe('cars')
+			Meteor.subscribe('cars'),
+			Meteor.subscribe('userFavorites')
 		];
 	}
+});
+
+Router.onBeforeAction(function() {
+	if (!Meteor.userId()) {
+		this.render('accessDenied');
+	} else {
+		this.next();
+	}
+}, {
+	only: ['favorites']
 });
 
 Router.route('/', function() {
@@ -46,12 +57,16 @@ Router.route('/register', {
 });
 
 Router.route('/car/:carid', {
-	waitOn: function() {
-		const commentLimit = 10;
-		return Meteor.subscribe('carDetails', this.params.carid, 10);
-	},
 	action: function() {
 		$('nav.navbar').trigger('hideBrandDropdown');
 		this.render('carDetails');
+	}
+});
+
+Router.route('/favorites', {
+	action: function() {
+		setNavbarActiveItem('favorites');
+		$('nav.navbar').trigger('hideBrandDropdown');
+		this.render('favorites');
 	}
 });

@@ -5,9 +5,19 @@
 	<div class="{{gridClasses}} column">
 		<div class="ui {{carsGridClasses}} column stackable grid home-container">
 			{{#each cars}}
-				{{> carGrid}}
+			{{> carGrid}}
 			{{else}}
-				<h1 class="ui header center aligned">No hay carros que mostrar por el momento</h1>
+			<div class="ui text container no-cars-found">
+				<div class="ui message">
+					<h2 class="ui header center aligned">No hay carros ingresados en el sistema</h2>
+					<h2 class="ui header center aligned">Animese a agregar carros para venta!</h2>
+					{{#if currentUser}}
+					<h2 class="ui header center aligned"><a href="/addCar">Agregar carro para venta</a></h2>
+					{{else}}
+					<h2 class="ui header center aligned">Crea una cuenta, totalmente gratis! <a href="/register">Registrarse</a></h2>
+					{{/if}}
+				</div>
+			</div>
 			{{/each}}
 		</div>
 	</div>
