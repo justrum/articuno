@@ -70,3 +70,19 @@ Router.route('/favorites', {
 		this.render('favorites');
 	}
 });
+
+Router.route('/newCars', {
+	action: function() {
+		setNavbarActiveItem('newCars');
+		$('nav.navbar').trigger('hideBrandDropdown');
+		this.render('newCars');
+	}
+});
+
+Router.route('/usedCars', {
+	action: function() {
+		setNavbarActiveItem('usedCars');
+		$('nav.navbar').trigger('hideBrandDropdown');
+		this.render('usedCars');
+	}
+});

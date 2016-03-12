@@ -24,7 +24,7 @@ Meteor.publish('userFavorites', function(){
 	return UserFavorites.find({
 		owner: this.userId
 	});
-})
+});
 
 Meteor.publishComposite('cars', {
 	find: function() {

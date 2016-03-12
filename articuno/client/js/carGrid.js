@@ -42,4 +42,4 @@ Template.carGrid.events({
 		});
 		Meteor.call('removeFavorite', favorite._id);
 	}
-})
+});

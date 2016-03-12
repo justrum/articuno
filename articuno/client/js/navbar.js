@@ -1,12 +1,9 @@
 Template.navbar.created = function() {
 	Session.setDefault('showBrandDropdown', false);
-	Tracker.autorun(() => {
-		Tracker.afterFlush(() => {
-			if (Session.get('showBrandDropdown') === true) {
-				$('.brand-dropdown').dropdown();
-			}
-		});
-	});
+};
+
+Template.navbar.rendered = function() {
+	$('.brand-dropdown').dropdown();
 };
 
 Template.navbar.events({
