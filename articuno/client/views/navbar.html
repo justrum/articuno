@@ -3,8 +3,8 @@
 	<div class="ui container">
 		<div class="header item">JustRum</div>
 		<a href="/home" class="item home">Inicio</a>
-		<a class="item">Autos Nuevos</a>
-		<a class="item">Autos Usados</a>
+		<a href="/newCars" class="item newCars">Autos Nuevos</a>
+		<a href="/usedCars" class="item usedCars">Autos Usados</a>
 		{{#if showBrandDropdown}}
 		<div class="ui pointing dropdown link item brand-dropdown">
 			<span class="text">Buscar por Marca</span>
@@ -17,7 +17,7 @@
 		</div>
 		{{/if}}
 		{{#if currentUser}}
-		<a class="item" href="/favorites">Favoritos</a>
+		<a class="item favorites" href="/favorites">Favoritos</a>
 		{{/if}}
 		<div class="menu right">
 			{{#if currentUser}}

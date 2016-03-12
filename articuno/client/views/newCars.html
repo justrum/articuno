@@ -1,0 +1,25 @@
+<template name="newCars">
+<h1 class="ui header center aligned">Ultimos {{amountCars}} carros nuevos </h1>
+<div class="ui divider"></div>
+<div class="ui grid">
+	<div class="{{gridClasses}} column">
+		<div class="ui {{carsGridClasses}} column stackable grid home-container">
+			{{#each cars}}
+			{{> carGrid}}
+			{{else}}
+			<div class="ui text container no-cars-found">
+				<div class="ui message">
+					<h2 class="ui header center aligned">No se han encontrado carros nuevos</h2>
+					<h2 class="ui header center aligned">Volver a <a href="/home">Inicio</a></h2>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+	{{#if currentUser.services.facebook}}
+	<div class="four wide column">
+		{{> fbSidebar}}
+	</div>
+	{{/if}}
+</div>
+</template>

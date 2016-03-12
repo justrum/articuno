@@ -25,4 +25,4 @@ Meteor.methods({
 		}
 		UserFavorites.remove(favId);
 	}
-})
+});
