@@ -6,7 +6,10 @@
 	<div class="content">
 		<a class="author">{{commentAuthor.profile.name}}</a>
 		<div class="metadata">
-			<span class="date">1 hour ago</span>
+			<span class="date">{{formatDate createdAt}}</span>
+			{{#if canDeleteComment}}
+			<span class="remove-comment"><i class="remove red circle large icon"></i></span>
+			{{/if}}
 		</div>
 		<div class="text">
 			{{text}}

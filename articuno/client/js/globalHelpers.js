@@ -18,3 +18,7 @@ Template.registerHelper('carsGridClasses', () => {
 	}
 	return classNames('four');
 });
+
+Template.registerHelper('formatDate', (date) => {
+	return moment(date).fromNow();
+});

@@ -120,7 +120,8 @@ let initDummyComments = () => {
 		comments.push({
 			carId: cars[car],
 			text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-			authorId: users[user]
+			authorId: users[user],
+			createdAt: new Date('01/01/2016')
 		});
 	}
 

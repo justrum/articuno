@@ -30,3 +30,14 @@ Template.carDetails.helpers({
 		});
 	},
 });
+
+Template.carDetails.events({
+	'click .add-comment': function() {
+		const comment = $('.comment-box textarea').val();
+		if (comment && comment.trim().length === 0) {
+			return;
+		}
+		Meteor.call('addComment', Meteor.userId(), this._id, comment);
+		$('.comment-box textarea').val('');
+	}
+});
