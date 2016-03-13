@@ -110,14 +110,16 @@
 					<span> No hay comentarios por el momento</span>
 					{{/each}}
 					{{#if currentUser}}
+					{{#with car}}
 					<form class="ui reply form">
-						<div class="field">
+						<div class="field comment-box">
 							<textarea></textarea>
 						</div>
-						<div class="ui blue labeled submit icon button">
+						<div class="ui blue labeled submit icon button add-comment">
 							<i class="icon edit"></i> Agregar Comentario
 						</div>
 					</form>
+					{{/with}}
 					{{/if}}
 				</div>
 			</div>
