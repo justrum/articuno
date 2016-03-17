@@ -11,19 +11,5 @@ Template.favorites.helpers({
 				$in: favCarIds
 			}
 		});
-	},
-	gridClasses: () => {
-		let user = Meteor.user();
-		if (user && user.services && user.services.facebook) {
-			return classNames('twelve', 'wide');
-		}
-		return classNames('');
-	},
-	carsGridClasses: () => {
-		let user = Meteor.user();
-		if (user && user.services && user.services.facebook) {
-			return classNames('three');
-		}
-		return classNames('four');
 	}
 });
