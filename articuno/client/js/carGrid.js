@@ -33,7 +33,11 @@ Template.carGrid.helpers({
 
 Template.carGrid.events({
 	'click .favorite-car': function() {
-		Meteor.call('addFavorite', this._id);
+		Meteor.call('addFavorite', this._id, (err, result) => {
+			if (err && err.error) {
+				return toastr.error(err);
+			}
+		});
 	},
 	'click .unfavorite-car': function() {
 		const favorite = UserFavorites.findOne({

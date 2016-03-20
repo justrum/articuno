@@ -37,7 +37,11 @@ Template.carDetails.events({
 		if (comment && comment.trim().length === 0) {
 			return;
 		}
-		Meteor.call('addComment', Meteor.userId(), this._id, comment);
+		Meteor.call('addComment', Meteor.userId(), this._id, comment, (err, result) => {
+			if (err && err.error) {
+				return toastr.error(err.error);
+			}
+		});
 		$('.comment-box textarea').val('');
 	}
 });
