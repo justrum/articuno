@@ -40,8 +40,8 @@ Template.newCars.viewmodel({
 			currency: this.currency()
 		};
 
-		let filterFields = {};
-		let whereClause = {
+		const filterFields = {};
+		const whereClause = {
 			isActive: true,
 			isNew: true
 		};
