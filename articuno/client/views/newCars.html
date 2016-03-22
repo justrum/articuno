@@ -2,6 +2,20 @@
 <h1 class="ui header center aligned">{{amountCars}} carros nuevos </h1>
 <div class="ui divider"></div>
 <div class="ui grid">
+	<div class="twelve wide column">
+		<div class="ui three column stackable grid home-container">
+			{{#each cars}}
+			{{> carGrid}}
+			{{else}}
+			<div class="ui text container no-cars-found">
+				<div class="ui message">
+					<h2 class="ui header center aligned">No se han encontrado carros nuevos</h2>
+					<h2 class="ui header center aligned">Volver a <a href="/home">Inicio</a></h2>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
 	<div class="four wide column">
 		<div class="column">
 			<div class="ui vertical menu filter-menu-container">
@@ -92,19 +106,9 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="twelve wide column">
-		<div class="ui three column stackable grid home-container">
-			{{#each cars}}
-			{{> carGrid}}
-			{{else}}
-			<div class="ui text container no-cars-found">
-				<div class="ui message">
-					<h2 class="ui header center aligned">No se han encontrado carros nuevos</h2>
-					<h2 class="ui header center aligned">Volver a <a href="/home">Inicio</a></h2>
-				</div>
-			</div>
-			{{/each}}
+		<div class="ui divider"></div>
+		<div class="column">
+			{{> fbSidebar}}
 		</div>
 	</div>
 </div>
