@@ -2,8 +2,8 @@
 <h1 class="ui header center aligned">{{amountCars}} carros usados </h1>
 <div class="ui divider"></div>
 <div class="ui grid">
-	<div class="{{gridClasses}} column">
-		<div class="ui {{carsGridClasses}} column stackable grid home-container">
+	<div class="twelve wide column">
+		<div class="ui three column stackable grid home-container">
 			{{#each cars}}
 			{{> carGrid}}
 			{{else}}
@@ -16,10 +16,12 @@
 			{{/each}}
 		</div>
 	</div>
-	{{#if currentUser.services.facebook}}
-	<div class="four wide column">
-		{{> fbSidebar}}
+	<div class="four wide column cars-sidebar">
+		{{> filterComponent cars=cars}}
+		<div class="ui divider"></div>
+		<div class="column">
+			{{> fbSidebar}}
+		</div>
 	</div>
-	{{/if}}
 </div>
 </template>
