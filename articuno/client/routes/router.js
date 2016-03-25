@@ -90,7 +90,6 @@ Router.route('/usedCars', {
 
 Router.route('/profile/:userid', {
 	action: function() {
-		setNavbarActiveItem('profile');
 		$('nav.navbar').trigger('hideBrandDropdown');
 		this.render('userProfile');
 	}
