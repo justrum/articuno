@@ -136,15 +136,7 @@ Schemas.UserFavorites = new SimpleSchema({
 
 Schemas.UserFollows = new SimpleSchema({
 	follows: {
-		type: [Object]
-	},
-	'follows.$.followUserId': {
 		type: String
-	},
-	'follows.$.isActive': {
-		type: Boolean,
-		defaultValue: true,
-		optional: true
 	},
 	owner: {
 		type: String

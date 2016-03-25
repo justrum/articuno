@@ -75,13 +75,11 @@ Meteor.methods({
         }
 
         const userFollowsObj = UserFollows.findOne({
-            owner: Meteor.userId()
+            owner: Meteor.userId(),
+            follows: followUserId
         });
 
-        const currentFollows = userFollowsObj && userFollowsObj.follows ? userFollowsObj.follows : [];
-        const isAlreadyFollowing = currentFollows.filter((follow) => {
-            return follow.followUserId === followUserId;
-        }).length > 0;
+        const isAlreadyFollowing = userFollowsObj !== undefined;
 
         if (isAlreadyFollowing === true) {
             throw new Meteor.Error('Ya esta siguiendo a este usuario!');
@@ -90,27 +88,34 @@ Meteor.methods({
         if (!userFollowsObj) {
             UserFollows.insert({
                 owner: Meteor.userId(),
-                follows: [{
-                    followUserId: followUserId
-                }]
-            }, (error, result) => {
-                if (error) {
-                    throw new Meteor.Error(unknownError);
-                }
-            });
-        } else {
-            UserFollows.update(userFollowsObj._id, {
-                $push: {
-                    follows: {
-                        followUserId: followUserId,
-                        isActive: true
-                    }
-                }
+                follows: followUserId
             }, (error, result) => {
                 if (error) {
                     throw new Meteor.Error(unknownError);
                 }
             });
         }
+    },
+    removeFollow(followUserId) {
+        check(followUserId, String);
+
+        if (!Meteor.userId()) {
+            throw new Meteor.Error('Necesita iniciar sesión para realizar esta operación.');
+        }
+
+        if (Meteor.userId() === followUserId) {
+            throw new Meteor.Error('Solo puedes dejar de seguir a usuarios distintos al tuyo.');
+        }
+
+        const userFollowsObj = UserFollows.findOne({
+            owner: Meteor.userId(),
+            follows: followUserId
+        });
+
+        if (!userFollowsObj) {
+            throw new Meteor.Error('Usuario no encontrado');
+        }
+		
+		UserFollows.remove(userFollowsObj._id);
     }
 });

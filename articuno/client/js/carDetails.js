@@ -11,16 +11,6 @@ Template.carDetails.helpers({
 			_id: this.brandId
 		});
 	},
-	contact: () => {
-		return {
-			name: 'Autolote JustRum',
-			address: 'Meteor',
-			city: 'Meteorite',
-			phoneNumber1: '9999-9999',
-			phoneNumber2: '9999-9999',
-			email: 'justrum@gmail.com'
-		};
-	},
 	comments: () => {
 		const carId = Router.current().params.carid;
 		return Comments.find({
@@ -28,6 +18,28 @@ Template.carDetails.helpers({
 		}, {
 			limit: 10
 		});
+	},
+	user: () => {
+		const carId = Router.current().params.carid;
+		const car = Cars.findOne({
+			_id: carId,
+			isActive: true
+		});
+		const user = Meteor.users.findOne({
+			_id: car.ownerId
+		});
+		return user;
+	},
+	userEmail: () => {
+		const carId = Router.current().params.carid;
+		const car = Cars.findOne({
+			_id: carId,
+			isActive: true
+		});
+		const user = Meteor.users.findOne({
+			_id: car.ownerId
+		});
+		return user.emails[0].address || 'N/A';
 	},
 });
 

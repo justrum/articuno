@@ -40,9 +40,7 @@ Meteor.startup(() => {
 });
 
 let initUsers = () => {
-	const cities = Cities.find({}).map((city) => {
-		return city._id;
-	});
+	const cities = initCities();
 
 	return [{
 		email: 'test@test.com',
@@ -72,7 +70,7 @@ let initUsers = () => {
 			address: 'foos bars',
 			phoneNumber1: '998212',
 			phoneNumber2: '992212',
-			city: cities[1].name
+			city: cities[2].name
 		}
 	}];
 };
