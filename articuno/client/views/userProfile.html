@@ -1,0 +1,86 @@
+<template name="userProfile">
+<div class="ui grid">
+	<div class="sixteen wide column">
+		<div class="ui two column stackable grid home-container">
+			<div class="column">
+				<div class="ui fluid card">
+					<div class="content center aligned">
+						<h1 class="header">Detalles de Usuario</h1>
+					</div>
+					<img class="ui large rounded circular centered image" src="/images/mockupuser.jpg">
+					<div class="content center aligned user-profile-fields">
+						<div class="ui raised segments">
+							<div class="ui segment center aligned">
+								<span> Nombre: <strong>{{user.profile.name}} </strong></span>
+							</div>
+							<div class="ui segment center aligned">
+								<span>Correo Electronico: <strong>{{userEmail}}</strong></span>
+							</div>
+							<div class="ui segment center aligned">
+								<span> Direccion: <strong>{{user.profile.address}} </strong></span>
+							</div>
+							<div class="ui segment center aligned">
+								<span>Ciudad: <strong>{{user.profile.city}} </strong></span>
+							</div>
+							<div class="ui segment center aligned">
+								<span>Telefono: <strong>{{user.profile.phoneNumber1}} </strong></span>
+							</div>
+							<div class="ui segment center aligned">
+								<span>Telefono: <strong>{{user.profile.phoneNumber2}} </strong></span>
+							</div>
+						</div>
+					</div>
+					{{#if currentUser}}
+						{{#if diffLoginUser}}
+						<div class="extra content">
+							<div class="ui two buttons">
+								{{#with user}}
+									<div class="ui basic green button follow-user">Seguir</div>
+									<div class="ui basic red button report-user">Reportar</div>
+								{{/with}}
+							</div>
+						</div>
+						{{/if}}
+					{{/if}}
+				</div>
+			</div>
+			<div class="column">
+				<div class="ui fluid card">
+					<div class="content aligned">
+						<div class="ui divided items">
+							{{#each userCars}}
+							<div class="item">
+								<div class="ui small image">
+									<img src="/images/car.png">
+								</div>
+								<div class="ui content">
+									<div class="header">
+										{{carBrand.name}} {{model}}
+									</div>
+									<div class="meta">
+										<span class="price">{{formatCurrency currency price}}</span>
+									</div>
+									<div class="description">
+										<p></p>
+									</div>
+									<div class="extra">
+										{{#if isNew}}
+											<div class="ui green tag label">Nuevo</div>
+											{{else}}
+											<div class="ui tag label">Usado</div>
+										{{/if}}
+										<div class="ui label"><i class="globe icon"></i> Additional Languages</div>
+      								</div>
+								</div>
+							</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+</div>
+</template>
