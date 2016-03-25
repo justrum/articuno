@@ -34,6 +34,19 @@ Template.userProfile.helpers({
         });
 
         return user._id !== Meteor.userId();
+    },
+    isOnFollowList: function() {
+        const userFollows = UserFollows.findOne({
+            owner: Meteor.userId()
+        });
+
+        if (!userFollows) {
+            return false;
+        }
+
+        return userFollows.follows.filter((follow) => {
+            return follow.followUserId === this._id && follow.isActive === true;
+        }).length > 0;
     }
 });
 
@@ -41,14 +54,13 @@ Template.userProfile.events({
     'click .follow-user': function(ev, template) {
         Meteor.call('addFollow', this._id, (err, result) => {
             if (err && err.error) {
-                return toastr.error(err);
+                return toastr.error(err.error);
             }
             const userId = Router.current().params.userid;
             const user = Meteor.users.findOne({
                 _id: userId
             });
-			console.log(UserFollows.find().count());
-            return toastr.success(`You are now following ${user.profile.name}`);
+            return toastr.success(`Ahora sigues a ${user.profile.name}!`);
         });
     }
 });

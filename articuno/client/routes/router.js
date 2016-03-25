@@ -13,7 +13,8 @@ Router.configure({
 			Meteor.subscribe('carbrands'),
 			Meteor.subscribe('cities'),
 			Meteor.subscribe('cars'),
-			Meteor.subscribe('userFavorites')
+			Meteor.subscribe('userFavorites'),
+			Meteor.subscribe('userFollows')
 		];
 	}
 });

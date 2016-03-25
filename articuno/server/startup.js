@@ -2,7 +2,6 @@ Meteor.startup(() => {
 	// code to run on server at startup
 	const carBrands = initCarBrands();
 	const cities = initCities();
-	const users = initUsers();
 
 	if (CarBrands.find().count() === 0) {
 		for (let i = 0; i < carBrands.length; i++) {
@@ -16,6 +15,7 @@ Meteor.startup(() => {
 		}
 	}
 	
+	const users = initUsers();
 	if (Meteor.users.find().count() === 0) {
 		for (let i = 0; i < users.length; i++) {
 			Accounts.createUser(users[i]);
@@ -40,7 +40,7 @@ Meteor.startup(() => {
 });
 
 let initUsers = () => {
-	const cities = Cities.find().map((city) => {
+	const cities = Cities.find({}).map((city) => {
 		return city._id;
 	});
 
@@ -52,7 +52,7 @@ let initUsers = () => {
 			address: 'foo bar',
 			phoneNumber1: '99821',
 			phoneNumber2: '99221',
-			city: cities[0]
+			city: cities[0].name
 		}
 	}, {
 		email: 'test2@test.com',
@@ -62,7 +62,17 @@ let initUsers = () => {
 			address: 'foos bars',
 			phoneNumber1: '998212',
 			phoneNumber2: '992212',
-			city: cities[1]
+			city: cities[1].name
+		}
+	},{
+		email: 'test3@test.com',
+		password: 'password',
+		profile: {
+			name: 'JustRum',
+			address: 'foos bars',
+			phoneNumber1: '998212',
+			phoneNumber2: '992212',
+			city: cities[1].name
 		}
 	}];
 };

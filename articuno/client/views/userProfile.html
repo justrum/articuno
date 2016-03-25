@@ -35,7 +35,11 @@
 						<div class="extra content">
 							<div class="ui two buttons">
 								{{#with user}}
-									<div class="ui basic green button follow-user">Seguir</div>
+									{{#if isOnFollowList}}
+										<div class="ui basic red button unfollow-user">Dejar de seguir</div>
+									{{else}}
+										<div class="ui basic green button follow-user">Seguir</div>
+									{{/if}}
 									<div class="ui basic red button report-user">Reportar</div>
 								{{/with}}
 							</div>

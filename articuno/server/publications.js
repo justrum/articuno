@@ -27,7 +27,7 @@ Meteor.publish('userFavorites', function() {
 });
 
 Meteor.publish('userFollows', function() {
-	return UserFollows.findOne({
+	return UserFollows.find({
 		owner: this.userId
 	});
 });

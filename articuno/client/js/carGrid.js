@@ -35,7 +35,7 @@ Template.carGrid.events({
 	'click .favorite-car': function() {
 		Meteor.call('addFavorite', this._id, (err, result) => {
 			if (err && err.error) {
-				return toastr.error(err);
+				return toastr.error(err.error);
 			}
 		});
 	},
