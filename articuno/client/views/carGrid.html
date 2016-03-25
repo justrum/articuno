@@ -5,7 +5,7 @@
 			{{#if isNew}}
 			<a class="ui green tag label right floated">Nuevo</a>
 			{{/if}}
-			<img class="ui avatar image" src="/images/mockupuser.jpg" /> {{carOwner.profile.name}}
+			<img class="ui avatar image" src="/images/mockupuser.jpg" /> <a href="/profile/{{carOwner._id}}"> {{carOwner.profile.name}} </a>
 		</div>
 		<div class="blurring dimmable image">
 			<div class="ui dimmer">
@@ -15,7 +15,7 @@
 					</div>
 				</div>
 			</div>
-			<img src="/images/mockupcar.png">
+			<img src="/images/car.png">
 		</div>
 		<div class="content">
 			<div class="header">{{carBrand.name}} {{model}}</div>

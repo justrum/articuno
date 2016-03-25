@@ -86,3 +86,11 @@ Router.route('/usedCars', {
 		this.render('usedCars');
 	}
 });
+
+Router.route('/profile/:userid', {
+	action: function() {
+		setNavbarActiveItem('profile');
+		$('nav.navbar').trigger('hideBrandDropdown');
+		this.render('userProfile');
+	}
+});
