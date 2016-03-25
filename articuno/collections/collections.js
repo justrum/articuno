@@ -4,3 +4,4 @@ Cities = new Mongo.Collection('cities');
 Cars = new Mongo.Collection('cars');
 Comments = new Mongo.Collection('comments');
 UserFavorites = new Mongo.Collection('userfavorites');
+UserFollows = new Mongo.Collection('userfollows');

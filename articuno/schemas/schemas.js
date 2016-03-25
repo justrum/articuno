@@ -134,9 +134,19 @@ Schemas.UserFavorites = new SimpleSchema({
 	}
 });
 
+Schemas.UserFollows = new SimpleSchema({
+	follows: {
+		type: String
+	},
+	owner: {
+		type: String
+	}
+});
+
 //attach schemas to collections
 CarBrands.attachSchema(Schemas.CarBrands);
 Cities.attachSchema(Schemas.Cities);
 Cars.attachSchema(Schemas.Cars);
 Comments.attachSchema(Schemas.Comments);
 UserFavorites.attachSchema(Schemas.UserFavorites);
+UserFollows.attachSchema(Schemas.UserFollows);

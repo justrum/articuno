@@ -2,13 +2,6 @@ Meteor.startup(() => {
 	// code to run on server at startup
 	const carBrands = initCarBrands();
 	const cities = initCities();
-	const users = initUsers();
-
-	if (Meteor.users.find().count() === 0) {
-		for (let i = 0; i < users.length; i++) {
-			Accounts.createUser(users[i]);
-		}
-	}
 
 	if (CarBrands.find().count() === 0) {
 		for (let i = 0; i < carBrands.length; i++) {
@@ -21,7 +14,14 @@ Meteor.startup(() => {
 			Cities.insert(cities[i]);
 		}
 	}
-
+	
+	const users = initUsers();
+	if (Meteor.users.find().count() === 0) {
+		for (let i = 0; i < users.length; i++) {
+			Accounts.createUser(users[i]);
+		}
+	}
+	
 	const cars = initDummyCars();
 
 	if (Cars.find().count() === 0) {
@@ -40,17 +40,37 @@ Meteor.startup(() => {
 });
 
 let initUsers = () => {
+	const cities = initCities();
+
 	return [{
 		email: 'test@test.com',
 		password: 'password',
 		profile: {
-			name: 'JustRDK'
+			name: 'JustRDK',
+			address: 'foo bar',
+			phoneNumber1: '99821',
+			phoneNumber2: '99221',
+			city: cities[0].name
 		}
 	}, {
 		email: 'test2@test.com',
 		password: 'password',
 		profile: {
-			name: 'Lord Vkrum'
+			name: 'Lord Vkrum',
+			address: 'foos bars',
+			phoneNumber1: '998212',
+			phoneNumber2: '992212',
+			city: cities[1].name
+		}
+	},{
+		email: 'test3@test.com',
+		password: 'password',
+		profile: {
+			name: 'JustRum',
+			address: 'foos bars',
+			phoneNumber1: '998212',
+			phoneNumber2: '992212',
+			city: cities[2].name
 		}
 	}];
 };

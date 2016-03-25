@@ -13,7 +13,8 @@ Router.configure({
 			Meteor.subscribe('carbrands'),
 			Meteor.subscribe('cities'),
 			Meteor.subscribe('cars'),
-			Meteor.subscribe('userFavorites')
+			Meteor.subscribe('userFavorites'),
+			Meteor.subscribe('userFollows')
 		];
 	}
 });
@@ -84,5 +85,12 @@ Router.route('/usedCars', {
 		setNavbarActiveItem('usedCars');
 		$('nav.navbar').trigger('hideBrandDropdown');
 		this.render('usedCars');
+	}
+});
+
+Router.route('/profile/:userid', {
+	action: function() {
+		$('nav.navbar').trigger('hideBrandDropdown');
+		this.render('userProfile');
 	}
 });

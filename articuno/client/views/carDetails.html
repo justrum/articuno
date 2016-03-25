@@ -57,7 +57,7 @@
 				{{/with}}
 			</div>
 			<div class="column">
-				{{#with contact}}
+				{{#with user}}
 				<div class="ui raised segments contact-details-segment">
 					<div class="ui segment center aligned">
 						<img src="/images/mockupuser.jpg">
@@ -66,22 +66,22 @@
 						<h1 class="ui header center aligned">Datos Contacto</h1>
 					</div>
 					<div class="ui segment center aligned">
-						<span> Nombre: <strong>{{name}} </strong></span>
+						<span> Nombre: <strong>{{profile.name}} </strong></span>
 					</div>
 					<div class="ui segment center aligned">
-						<span> Direccion: <strong>{{address}} </strong></span>
+						<span> Direccion: <strong>{{profile.address}} </strong></span>
 					</div>
 					<div class="ui segment center aligned">
-						<span>Ciudad: <strong>{{city}} </strong></span>
+						<span>Ciudad: <strong>{{profile.city}} </strong></span>
 					</div>
 					<div class="ui segment center aligned">
-						<span>Telefono: <strong>{{phoneNumber1}} </strong></span>
+						<span>Telefono: <strong>{{profile.phoneNumber1}} </strong></span>
 					</div>
 					<div class="ui segment center aligned">
-						<span>Telefono: <strong>{{phoneNumber2}} </strong></span>
+						<span>Telefono: <strong>{{profile.phoneNumber2}} </strong></span>
 					</div>
 					<div class="ui segment center aligned">
-						<span>Correo Electronico: <strong>{{email}}</strong></span>
+						<span>Correo Electronico: <strong>{{userEmail}}</strong></span>
 					</div>
 				</div>
 				{{/with}}
