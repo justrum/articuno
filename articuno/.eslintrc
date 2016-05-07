@@ -15,7 +15,8 @@
     "curly": [0],
     "eqeqeq": 2,
     "no-loop-func": 2,
-    "semi": 2
+    "semi": 2,
+    "consistent-return": 0
   },
   "globals": {
     // Collections
