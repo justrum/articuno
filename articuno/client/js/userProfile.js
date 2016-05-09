@@ -11,7 +11,7 @@ Template.userProfile.helpers({
 		const user = Meteor.users.findOne({
 			_id: userId
 		});
-		return user.emails[0].address || 'N/A';
+		return user.emails[0] ? user.emails[0].address : 'N/A';
 	},
 	userCars: function() {
 		const userId = Router.current().params.userid;
