@@ -1,4 +1,4 @@
-let setNavbarActiveItem = (item) => {
+const setNavbarActiveItem = (item) => {
 	$('.navbar a').removeClass('active');
 	$(`.navbar a.${item}`).addClass('active');
 };
