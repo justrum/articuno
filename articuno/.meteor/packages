@@ -12,12 +12,13 @@ session                 # Client-side reactive dictionary for your app
 jquery                  # Helpful client-side library
 tracker                 # Meteor's client-side reactive programming library
 
-standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 manuel:viewmodel
 accounts-password
+mdg:validated-method
+mdg:validation-error
 semantic:ui
 flemay:less-autoprefixer
 semantic:ui-data
@@ -30,8 +31,8 @@ lepozepo:accounting
 accounts-facebook
 service-configuration
 maxharris9:classnames
-johannesma:meteor-flexslider
 reywood:publish-composite
-check
 momentjs:moment
 pcel:toastr
+standard-minifier-css
+standard-minifier-js

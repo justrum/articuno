@@ -1,0 +1,34 @@
+<template name="navbar">
+<nav class="ui menu navbar">
+	<div class="ui container">
+		<div class="header item">JustRum</div>
+		<a href="/home" class="item home">Inicio</a>
+		<a href="/newCars" class="item newCars">Autos Nuevos</a>
+		<a href="/usedCars" class="item usedCars">Autos Usados</a>
+		{{#if showBrandDropdown}}
+		<div class="ui pointing dropdown link item brand-dropdown">
+			<span class="text">Buscar por Marca</span>
+			<i class="dropdown icon"></i>
+			<div class="menu">
+			{{#each brands}}
+				<div class="item brand-item">{{name}} ({{amountCarsBrand}})</div>
+			{{/each}}
+			</div>
+		</div>
+		{{/if}}
+		{{#if currentUser}}
+		<a class="item favorites" href="/favorites">Favoritos</a>
+		{{/if}}
+		<div class="menu right">
+			{{#if currentUser}}
+			<a class="item">
+				<span>Bienvenido, <b>{{currentUser.profile.name}}</b></span>
+			</a>
+			<a class="item logout">Cerrar Sesión</a>
+			{{else}}
+			{{> login}}
+			{{/if}}
+		</div>
+	</div>
+</nav>
+</template>
