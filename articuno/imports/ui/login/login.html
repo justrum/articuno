@@ -1,0 +1,33 @@
+<template name="login">
+<div class="ui simple dropdown item">
+	Iniciar Sesión
+	<i class="dropdown icon"></i>
+	<div class="login menu">
+		<form class="ui form">
+			<div class="field item">
+				<div class="ui left icon input">
+					<i class="user icon"></i>
+					<input type="text" data-bind="value: email" name="email" placeholder="Correo electrónico">
+				</div>
+			</div>
+			<div class="field item">
+				<div class="ui left icon input">
+					<i class="lock icon"></i>
+					<input type="password" data-bind="value: password" name="password" placeholder="Contraseña">
+				</div>
+			</div>
+			<div class="item">
+				<div class="ui error message"></div>
+				<div class="fluid ui buttons">
+					<a href="/register" class="ui register button">Registrarse</a>
+					<div class="or" data-text="o"></div>
+					<button class="ui positive login button" type="submit">Iniciar Sesión</button>
+				</div>
+			</div>
+			<div class="item">
+				<button class="fluid ui facebook button"><i class="facebook icon"></i>Iniciar sesión con Facebook</button>
+			</div>
+		</form>
+	</div>
+</div>
+</template>
