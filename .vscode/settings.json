@@ -1,6 +1,6 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "editor.fontFamily": "Roboto Mono Medium",
+    "editor.fontFamily": "roboto mono medium",
     "editor.fontSize": 12,
     "javascript.validate.lint.comparisonOperatorsNotStrict": "error",
     "javascript.validate.lint.missingSemicolon": "error",

@@ -1,8 +1,15 @@
-Template.fbSidebar.created = function() {
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
+
+import './fbSideBar.html';
+
+Template.fbSidebar.onCreated(function fbSidebarOnCreated() {
 	this.fbGroups = new ReactiveVar([]);
 	this.fbPages = new ReactiveVar([]);
-	let user = Meteor.user();
-	let interval = setInterval(() => {
+	const user = Meteor.user();
+
+	const interval = setInterval(() => {
 		if (typeof FB !== 'undefined' && user && user.services && user.services.facebook) {
 			FB.api(`/${user.services.facebook.id}/groups`, (response) => {
 				if (response && !response.error) {
@@ -10,7 +17,7 @@ Template.fbSidebar.created = function() {
 				}
 			}, {
 				fields: ['general_info', 'access_token', 'name', 'link', 'picture'],
-				access_token: user.services.facebook.accessToken
+				access_token: user.services.facebook.accessToken,
 			});
 			FB.api(`/${user.services.facebook.id}/accounts`, (response) => {
 				if (response && !response.error) {
@@ -21,18 +28,18 @@ Template.fbSidebar.created = function() {
 				}
 			}, {
 				fields: ['general_info', 'access_token', 'name', 'link', 'picture'],
-				access_token: user.services.facebook.accessToken
+				access_token: user.services.facebook.accessToken,
 			});
 			clearInterval(interval);
 		}
 	}, 300);
-};
+});
 
 Template.fbSidebar.helpers({
-	fbGroups: () => {
+	fbGroups() {
 		return Template.instance().fbGroups.get();
 	},
-	fbPages: () => {
+	fbPages() {
 		return Template.instance().fbPages.get();
-	}
+	},
 });

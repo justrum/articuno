@@ -4,7 +4,7 @@ import { $ } from 'meteor/jquery';
 
 import './login.html';
 
-Template.login.rendered = () => {
+Template.login.onRendered(function loginOnRendered() {
 	$('.login form').form({
 		fields: {
 			email: {
@@ -26,10 +26,10 @@ Template.login.rendered = () => {
 			},
 		},
 	});
-};
+});
 
 Template.login.events({
-	'submit .login form': (event) => {
+	'submit .login form'(event) {
 		event.preventDefault();
 		const email = event.target.email.value;
 		const password = event.target.password.value;
@@ -42,10 +42,10 @@ Template.login.events({
 			}
 		});
 	},
-	'click .login .facebook': (event) => {
+	'click .login .facebook'(event) {
 		event.preventDefault();
 		Meteor.loginWithFacebook({
-			requestPermissions: ['user_managed_groups', 'publish_actions', 'manage_pages']
+			requestPermissions: ['user_managed_groups', 'publish_actions', 'manage_pages'],
 		}, (err) => {
 			if (err) {
 				throw new Meteor.Error('Inicio de sesión con Facebook fallido.');

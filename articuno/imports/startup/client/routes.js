@@ -2,6 +2,8 @@ import { Meteor } from 'meteor/meteor';
 import { Router } from 'meteor/iron:router';
 import { $ } from 'meteor/jquery';
 
+import '../../ui/helpers.js';
+
 const setNavbarActiveItem = (item) => {
 	$('.navbar a').removeClass('active');
 	$(`.navbar a.${item}`).addClass('active');
@@ -98,4 +100,3 @@ Router.route('/profile/:userid', {
 		this.render('userProfile');
 	},
 });
-

@@ -1,32 +1,45 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+import { Router } from 'meteor/iron:router';
+import { $ } from 'meteor/jquery';
+import { toastr } from 'meteor/pcel:toastr';
+
+import { Cars } from '../../api/Cars/cars.js';
+import { CarBrands } from '../../api/CarBrands/carBrands.js';
+import { Comments } from '../../api/Comments/comments.js';
+import { addComment } from '../../api/Comments/methods.js';
+
+import './carDetails.html';
+
 Template.carDetails.helpers({
-	car: () => {
+	car() {
 		const carId = Router.current().params.carid;
 		return Cars.findOne({
 			_id: carId,
-			isActive: true
+			isActive: true,
 		});
 	},
-	carBrand: function() {
+	carBrand() {
 		return CarBrands.findOne({
-			_id: this.brandId
+			_id: this.brandId,
 		});
 	},
-	comments: () => {
+	comments() {
 		const carId = Router.current().params.carid;
 		return Comments.find({
-			carId: carId
+			carId,
 		}, {
-			limit: 10
+			limit: 10,
 		});
 	},
-	user: () => {
+	user() {
 		const carId = Router.current().params.carid;
 		const car = Cars.findOne({
 			_id: carId,
-			isActive: true
+			isActive: true,
 		});
 		const user = Meteor.users.findOne({
-			_id: car.ownerId
+			_id: car.ownerId,
 		});
 		return user;
 	},
@@ -34,26 +47,29 @@ Template.carDetails.helpers({
 		const carId = Router.current().params.carid;
 		const car = Cars.findOne({
 			_id: carId,
-			isActive: true
+			isActive: true,
 		});
 		const user = Meteor.users.findOne({
-			_id: car.ownerId
+			_id: car.ownerId,
 		});
 		return user.emails[0].address || 'N/A';
 	},
 });
 
 Template.carDetails.events({
-	'click .add-comment': function() {
+	'click .add-comment'(event, instance) {
 		const comment = $('.comment-box textarea').val();
 		if (comment && comment.trim().length === 0) {
 			return;
 		}
-		Meteor.call('addComment', Meteor.userId(), this._id, comment, (err, result) => {
+		addComment.call({
+			carId: this._id,
+			commentText: comment,
+		}, (err) => {
 			if (err && err.error) {
 				return toastr.error(err.error);
 			}
+			$('.comment-box textarea').val('');
 		});
-		$('.comment-box textarea').val('');
-	}
+	},
 });
