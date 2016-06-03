@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
-import { SimpleSchema } from 'aldeed:simple-schema';
-import { ValidatedMethod } from 'mdg:validated-method';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { ValidatedMethod } from 'meteor/mdg:validated-method';
 
 import { Comments } from './comments.js';
 

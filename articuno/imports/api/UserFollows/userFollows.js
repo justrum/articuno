@@ -1,5 +1,5 @@
 import { Mongo } from 'meteor/mongo';
-import { SimpleSchema } from 'meteor/simple-schema';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 export const UserFollows = new Mongo.Collection('userfollows');
 

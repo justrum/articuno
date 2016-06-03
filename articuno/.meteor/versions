@@ -49,10 +49,9 @@ iron:core@1.0.11
 iron:dynamic-template@1.0.12
 iron:layout@1.0.12
 iron:location@1.0.11
-iron:middleware-stack@1.0.11
+iron:middleware-stack@1.1.0
 iron:router@1.0.12
 iron:url@1.0.11
-johannesma:meteor-flexslider@0.0.1
 jquery@1.11.8
 launch-screen@1.0.11
 lepozepo:accounting@1.0.0
@@ -64,7 +63,8 @@ manuel:reactivearray@1.0.5
 manuel:viewmodel@3.4.10
 manuel:viewmodel-debug@2.6.4
 maxharris9:classnames@0.0.1
-mdg:validation-error@0.2.0
+mdg:validated-method@1.1.0
+mdg:validation-error@0.5.1
 meteor@1.1.14
 meteor-base@1.0.4
 minifier-css@1.1.11

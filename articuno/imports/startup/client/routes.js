@@ -3,6 +3,18 @@ import { Router } from 'meteor/iron:router';
 import { $ } from 'meteor/jquery';
 
 import '../../ui/helpers.js';
+import '../../ui/layouts/articuno.js';
+import '../../ui/layouts/accessDenied.js';
+import '../../ui/layouts/appLoading.js';
+import '../../ui/layouts/notFound.js';
+import '../../ui/home/home.js';
+import '../../ui/carsByBrand/carsByBrand.js';
+import '../../ui/register/register.js';
+import '../../ui/carDetails/carDetails.js';
+import '../../ui/favorites/favorites.js';
+import '../../ui/newCars/newCars.js';
+import '../../ui/usedCars/usedCars.js';
+import '../../ui/userProfile/userProfile.js';
 
 const setNavbarActiveItem = (item) => {
 	$('.navbar a').removeClass('active');

@@ -8,14 +8,14 @@ import './usedCars.html';
 
 import { Cars } from '../../api/Cars/cars.js';
 
-Template.usedCars.onCreated = function usedCarsOnCreated() {
+Template.usedCars.onCreated(function usedCarsOnCreated() {
 	this.cars = new ReactiveVar([]);
 	const cars = Cars.find({
 		isActive: true,
 		isNew: false,
 	});
 	this.cars.set(cars);
-};
+});
 
 Template.usedCars.helpers({
 	cars() {

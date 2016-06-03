@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
-import { accounting } from 'meteor/lepozepo:accounting';
+import { accounting } from 'accounting';
 import { classNames } from 'meteor/maxharris9:classnames';
-import { moment } from 'momentjs:moment';
+import { moment } from 'meteor/momentjs:moment';
 
 Template.registerHelper('formatCurrency', (currency, amount) => {
 	accounting.settings.currency.format = '%s %v';

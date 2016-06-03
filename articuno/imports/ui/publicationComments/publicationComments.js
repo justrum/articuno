@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { Template } from 'meteor/template';
+import { Template } from 'meteor/templating';
 
 import { Cars } from '../../api/Cars/cars.js';
 import { removeComment } from '../../api/Comments/methods.js';
