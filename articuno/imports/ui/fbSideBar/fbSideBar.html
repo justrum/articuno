@@ -1,0 +1,40 @@
+<template name="fbSidebar">
+<div class="column">
+	<div class="ui centered card fb-pages">
+		<div class="content">
+			<div class="header">Grupos de Facebook</div>
+			<div class="ui list">
+				{{#each fbGroups}}
+				<div class="item">
+					<div class="right floated content">
+						<a href="{{link}}" target="_blank" class="ui button"><i class="share icon"></i></a>
+					</div>
+					<img class="ui avatar image" src="{{picture.data.url}}">
+					<div class="content">
+						<div class="header">{{name}}</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+	<div class="ui centered card fb-pages">
+		<div class="content">
+			<div class="header">Páginas de Facebook</div>
+			<div class="ui list">
+				{{#each fbPages}}
+				<div class="item">
+					<div class="right floated content">
+						<a href="{{link}}" target="_blank" class="ui button"><i class="share icon"></i></a>
+					</div>
+					<img class="ui avatar image" src="{{picture.data.url}}">
+					<div class="content">
+						<div class="header">{{name}}</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>
+</template>

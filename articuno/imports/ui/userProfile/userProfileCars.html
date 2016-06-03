@@ -1,0 +1,47 @@
+<template name="userProfileCars">
+	<div class="item car-item">
+		<div class="blurring dimmable image">
+			<div class="ui dimmer">
+				<div class="content">
+					<div class="center">
+						<a class="ui positive button" href="/car/{{_id}}">Ver Detalles de Carro</a>
+					</div>
+				</div>
+			</div>
+			<img class="small image" src="/images/car.png">
+		</div>
+		<div class="ui content">
+			<div class="header">
+				{{carBrand.name}} {{model}}
+			</div>
+			<div class="meta">
+				<h2 class="price">{{formatCurrency currency price}}</h2>
+			</div>
+			<div class="ui divider"></div>
+			<div class="description">
+				<div class="ui mini statistic">
+					<div class="value">
+						{{views}}
+					</div>
+					<div class="label">
+						visitas
+					</div>
+				</div>
+				<div class="ui mini statistic">
+					<div class="value">
+						{{amountComments}}
+					</div>
+					<div class="label">
+						comentarios
+					</div>
+				</div>
+			</div>
+			<div class="extra">
+				{{#if isNew}}
+					<div class="ui green tag label">Nuevo</div>
+				{{/if}}
+				<div class="ui label"><i class="globe icon"></i> {{carCity.name}}</div>
+			</div>
+		</div>
+	</div>
+</template>

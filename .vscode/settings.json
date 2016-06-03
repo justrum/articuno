@@ -1,0 +1,16 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontFamily": "roboto mono medium",
+    "editor.fontSize": 12,
+    "javascript.validate.lint.comparisonOperatorsNotStrict": "error",
+    "javascript.validate.lint.missingSemicolon": "error",
+    "javascript.validate.enable": false,
+    "javascript.validate.semanticValidation": false,
+    "window.openFilesInNewWindow": false,
+    "cssfmt.useTabs": true,
+    "editor.insertSpaces": false,
+    "jscs.disableIfNoConfig": true,
+    // Check JavaScript files for syntax errors.
+    "javascript.validate.syntaxValidation": true,
+    "explorer.autoReveal": false
+}
