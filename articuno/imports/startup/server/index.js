@@ -1,3 +1,4 @@
+import './fixtures.js';
 import './publications/mainPublications.js';
 import './methods.js';
 
