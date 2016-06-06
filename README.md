@@ -4,4 +4,4 @@ choose your car meteor app
 Just clone the repository, go to the articuno directory and type meteor on your console. Aaaaannnnd that's it! you won't spend a week setting up this repo like some transformers out there
 
 
-**Will be upgraded to Meteor 1.3 soon**
+**Meteor 1.3 app**
