@@ -263,15 +263,9 @@ const initUsers = () => {
 };
 
 const initDummyCars = () => {
-	const carBrands = CarBrands.find().map((brand) => {
-		return brand._id;
-	});
-	const users = Meteor.users.find().map((user) => {
-		return user._id;
-	});
-	const cities = Cities.find().map((city) => {
-		return city._id;
-	});
+	const carBrands = CarBrands.find().map((brand) => brand._id);
+	const users = Meteor.users.find().map((user) => user._id);
+	const cities = Cities.find().map((city) => city._id);
 
 	const models = ['A6', 'Murcielago', 'Corolla', 'Lancer Evolution'];
 	const status = [true, false];
@@ -314,12 +308,8 @@ const initDummyCars = () => {
 
 const initDummyComments = () => {
 	const comments = [];
-	const users = Meteor.users.find().map((user) => {
-		return user._id;
-	});
-	const cars = Cars.find().map((car) => {
-		return car._id;
-	});
+	const users = Meteor.users.find().map((user) => user._id);
+	const cars = Cars.find().map((car) => car._id);
 
 	for (let i = 0; i < 40; i++) {
 		const car = Math.floor((Math.random() * (cars.length)));
