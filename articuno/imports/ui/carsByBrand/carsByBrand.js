@@ -11,26 +11,26 @@ import '../fbSideBar/fbSideBar.js';
 import './carsByBrand.html';
 
 Template.carsByBrand.helpers({
-	cars: () => {
+	cars() {
 		const brandId = Router.current().params.brandid;
 		return Cars.find({
 			brandId,
 		});
 	},
-	brand: () => {
+	brand() {
 		const brandId = Router.current().params.brandid;
 		return CarBrands.findOne({
 			_id: brandId,
 		});
 	},
-	gridClasses: () => {
+	gridClasses() {
 		const user = Meteor.user();
 		if (user && user.services && user.services.facebook) {
 			return classNames('twelve', 'wide');
 		}
 		return classNames('');
 	},
-	carsGridClasses: () => {
+	carsGridClasses() {
 		const user = Meteor.user();
 		if (user && user.services && user.services.facebook) {
 			return classNames('three');

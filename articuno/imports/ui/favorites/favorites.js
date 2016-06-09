@@ -9,7 +9,7 @@ import '../fbSideBar/fbSideBar.js';
 import './favorites.html';
 
 Template.favorites.helpers({
-	cars: () => {
+	cars() {
 		const favCarIds = UserFavorites.find({
 			owner: Meteor.userId(),
 		}).map((favorite) => favorite.carId);

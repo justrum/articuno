@@ -43,7 +43,7 @@ Template.carDetails.helpers({
 		});
 		return user;
 	},
-	userEmail: () => {
+	userEmail() {
 		const carId = Router.current().params.carid;
 		const car = Cars.findOne({
 			_id: carId,

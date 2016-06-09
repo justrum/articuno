@@ -58,8 +58,8 @@ Template.carGrid.events({
 			owner: Meteor.userId(),
 			carId: this._id,
 		});
-		// removeFavorite.call({
-		// 	_id: favorite._id,
-		// });
+		removeFavorite.call({
+			_id: favorite._id,
+		});
 	},
 });
