@@ -9,6 +9,7 @@ import { CarBrands } from '../../api/CarBrands/carBrands.js';
 import { Comments } from '../../api/Comments/comments.js';
 import { addComment } from '../../api/Comments/methods.js';
 
+import '../publicationComments/publicationComments.js';
 import './carDetails.html';
 
 Template.carDetails.helpers({

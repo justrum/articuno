@@ -4,6 +4,8 @@ import { Template } from 'meteor/templating';
 import { Cars } from '../../api/Cars/cars.js';
 import { removeComment } from '../../api/Comments/methods.js';
 
+import './publicationComments.html';
+
 Template.publicationComments.helpers({
 	commentAuthor() {
 		return Meteor.users.findOne(this.authorId);
